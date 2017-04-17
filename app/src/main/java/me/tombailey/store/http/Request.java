@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
@@ -350,8 +351,20 @@ public class Request {
             return this;
         }
 
-        public Builder url(String url) {
-            mUrl = url;
+        public Builder url(String url) throws MalformedURLException, InsecureRequestException {
+            return url(new URL(url));
+        }
+
+        public Builder url(URL url) throws InsecureRequestException {
+            if (!url.getHost().toLowerCase().endsWith(".onion") &&
+                    url.getProtocol().equalsIgnoreCase("http")) {
+                throw new InsecureRequestException("destination is not hosted over HTTPS and " +
+                        "outside of the TOR network. It is vulnerable to interception and/or " +
+                        "manipulation. See " +
+                        "https://www.torproject.org/docs/faq.html.en#CanExitNodesEavesdrop");
+            }
+
+            mUrl = url.toString();
             return this;
         }
 
