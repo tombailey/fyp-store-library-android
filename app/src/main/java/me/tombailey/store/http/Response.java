@@ -95,8 +95,12 @@ public class Response {
         int headersLength = 0;
         for (Header header : mHeaders) {
             headersLength +=
-                    (header.getName().getBytes().length + header.getValue().getBytes().length) + 2;
+                    (header.getName().getBytes().length +
+                            ": ".getBytes().length +
+                            header.getValue().getBytes().length) + 2;
         }
+        //for CRLF after headers finish
+        headersLength += 2;
 
         return statusLineLength + headersLength + mMessageBody.length;
     }
