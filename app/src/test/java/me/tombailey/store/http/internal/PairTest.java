@@ -2,7 +2,7 @@ package me.tombailey.store.http.internal;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.hamcrest.core.Is.*;
 import static org.junit.Assert.*;

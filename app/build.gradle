@@ -20,11 +20,18 @@ android {
 }
 
 dependencies {
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.powermock:powermock-module-junit4-legacy:1.7.0RC4'
-    testCompile 'org.powermock:powermock-mockito-release-full:1.6.4'
+    testCompile 'junit:junit:4.4'
+
+    testCompile 'org.powermock:powermock-module-junit4:1.6.6'
+    testCompile 'org.powermock:powermock-api-easymock:1.6.6'
+
+    testCompile 'org.easymock:easymock:3.1'
+
+    testCompile 'org.mockito:mockito-all:1.10.8'
+
 
     compile fileTree(include: ['*.jar'], dir: 'libs')
+
 
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
