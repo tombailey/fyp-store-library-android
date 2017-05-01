@@ -130,7 +130,7 @@ public class Response {
         String[] metaDataParts = metaData.second();
 
 
-        String[] statusLineParts = metaData.second()[0].split(" ");
+        String[] statusLineParts = metaDataParts[0].split(" ");
         String httpVersion = statusLineParts[0];
         int statusCode = Integer.parseInt(statusLineParts[1]);
         String statusText = statusLineParts[2];
