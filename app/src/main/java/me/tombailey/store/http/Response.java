@@ -173,7 +173,6 @@ public class Response {
                     try {
                         metaDataParts.add(metaDataPartByteArray.toString(ISO_8859_1));
                     } catch (UnsupportedEncodingException uee) {
-                        //TODO: is re-throwing as a runtime exception acceptable here?
                         throw new RuntimeException(uee);
                     }
 

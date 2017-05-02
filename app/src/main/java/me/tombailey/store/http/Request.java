@@ -287,7 +287,6 @@ public class Request {
     }
 
     private int remainingCacheSpace() {
-        //TODO: store size rather than computing each time?
         int maxSize = sCache.getMaxSize();
         int currentSize = 0;
 
